@@ -1,0 +1,138 @@
+{
+   "manifest_version": 3,
+   "name": "AzadSEO 1",
+   "description": "This chrome extention provide premium services to our paid customers.",
+   "version": "3.5",
+   "icons": {
+      "16": "logo/icon16.png",
+      "48": "logo/icon48.png",
+      "128": "logo/icon128.png"
+   },
+   "permissions": [
+      "scripting",
+      "webRequest",
+      "webRequestAuthProvider",
+      "tabs",
+      "cookies",
+      "proxy",
+      "management",
+      "declarativeNetRequest",
+      "declarativeNetRequestWithHostAccess"
+   ],
+   "declarative_net_request": {
+     "rule_resources": [{
+       "id": "blocking_rule",
+       "enabled": true,
+       "path": "rules/blocked.json"
+     }]
+   },
+   "host_permissions": [
+      "*://*.azadseo.com/*",
+      "*://*.envato.com/*",
+      "*://*.semrush.com/*",
+      "*://*.grammarly.com/*",
+      "*://*.helium10.com/*",
+      "*://*.moz.com/*",
+      "*://*.vyond.com/*",
+      "*://*.indexfication.com/*",
+      "*://*.neilpatel.com/*",
+      "*://*.canva.com/*",
+      "*://*.fotojet.com/*",
+      "*://*.woorank.com/*",
+      "*://*.skillshare.com/*",
+      "*://*.copymatic.ai/*",
+      "*://*.chatgpt.com/*",
+      "*://chatgpt.com/*",
+      "*://*.quillbot.com/*",
+      "*://*.rupt.dev/*",
+      "*://quillbot.com/*",
+      "*://*.jasper.ai/*",
+      "*://*.junglescout.com/*",
+      "*://junglescout.com/*"
+   ],
+   "background": {
+      "service_worker": "service-worker.js"
+   },
+   "content_scripts": [
+      {
+         "all_frames": true,
+         "js": [
+            "jquery.js",
+            "seo-script.js"
+         ],
+         "matches": [
+            "*://*.azadseo.com/*"
+         ],
+         "run_at": "document_idle"
+      },
+      {
+         "all_frames": true,
+         "js": [
+            "jquery.js",
+            "gram.js"
+         ],
+         "matches": [
+            "*://*.grammarly.com/*"
+         ],
+         "run_at": "document_idle"
+      },
+      {
+         "all_frames": true,
+         "js": [
+            "jquery.js",
+            "cnv.js"
+         ],
+         "matches": [
+            "*://*.canva.com/*"
+         ],
+         "run_at": "document_idle"
+      },
+      {
+         "all_frames": true,
+         "js": [
+            "jquery.js",
+            "sklshr.js"
+         ],
+         "matches": [
+            "*://*.skillshare.com/*"
+         ],
+         "run_at": "document_idle"
+      },
+      {
+         "all_frames": true,
+         "js": [
+            "jquery.js",
+            "envto.js"
+         ],
+         "matches": [
+            "*://*.envato.com/*"
+         ],
+         "run_at": "document_idle"
+      },
+      {
+         "all_frames": true,
+         "js": [
+            "import-data.js"
+         ],
+         "matches": [
+            "*://*.jasper.ai/*",
+            "*://*.junglescout.com/*",
+            "*://quillbot.com/*"
+         ],
+         "run_at": "document_end"
+      }
+   ],
+   "externally_connectable": {
+      "matches": [
+         "*://*.azadseo.com/*"
+      ]
+   },
+   "web_accessible_resources": [
+      {
+         "resources": [ "logo/logo.png" ],
+         "matches": [ "*://*/*" ]
+      }
+   ],
+   "homepage_url": "https://azadseo.com/",
+   "minimum_chrome_version": "84.0"
+}

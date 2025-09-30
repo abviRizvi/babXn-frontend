@@ -1,0 +1,66 @@
+{
+   "manifest_version": 3,
+   "name": "AzadSEO 2",
+   "description": "This chrome extention provide premium services to our paid customers.",
+   "version": "3.0",
+   "icons": {
+      "16": "logo/icon16.png",
+      "48": "logo/icon48.png",
+      "128": "logo/icon128.png"
+   },
+   "permissions": [
+      "webRequest",
+      "tabs",
+      "cookies",
+      "management"
+   ],
+   "host_permissions": [
+      "*://*.azadseo.com/*",
+      "*://*.envato.com/*",
+      "*://*.semrush.com/*",
+      "*://*.grammarly.com/*",
+      "*://*.helium10.com/*",
+      "*://*.moz.com/*",
+      "*://*.vyond.com/*",
+      "*://*.indexfication.com/*",
+      "*://*.neilpatel.com/*",
+      "*://*.canva.com/*",
+      "*://*.fotojet.com/*",
+      "*://*.woorank.com/*",
+      "*://*.skillshare.com/*",
+      "*://*.copymatic.ai/*",
+      "*://*.chatgpt.com/*",
+      "*://chatgpt.com/*",
+      "*://*.quillbot.com/*",
+      "*://quillbot.com/*"
+   ],
+   "background": {
+      "service_worker": "service-worker.js"
+   },
+   "content_scripts": [
+      {
+         "all_frames": true,
+         "js": [
+            "jquery.js",
+            "seo-script.js"
+         ],
+         "matches": [
+            "*://*.azadseo.com/*"
+         ],
+         "run_at": "document_idle"
+      }
+   ],
+   "externally_connectable": {
+      "matches": [
+         "*://*.azadseo.com/*"
+      ]
+   },
+   "web_accessible_resources": [
+      {
+         "resources": [ "logo/logo.png" ],
+         "matches": [ "*://*/*" ]
+      }
+   ],
+   "homepage_url": "https://azadseo.com/",
+   "minimum_chrome_version": "84.0"
+}
